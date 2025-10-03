@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>صفحة تسجيل دخول وهمية</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding-top: 50px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 250px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>تسجيل الدخول إلى شبكة وهمية</h2>
+    <form id="loginForm">
+        <input type="text" name="username" placeholder="ادخل رمز البطاقة"><br>
+        <input type="password" name="password" placeholder="ادخل كلمة السر"><br>
+        <button type="submit">تسجيل الدخول</button>
+    </form>
+    <div id="result"></div>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const username = formData.get("username");
+        const password = formData.get("password");
+
+        // بيانات الدخول الصحيحة للتجربة
+        const correctUsername = "0000";
+        const correctPassword = "0000";
+
+        if (username === correctUsername && password === correctPassword) {
+            document.getElementById("result").innerText = "✅ تم تسجيل الدخول بنجاح";
+        } else {
+            document.getElementById("result").innerText = "❌ فشل تسجيل الدخول - تحقق من البيانات";
+        }
+    });
+</script>
+</body>
+</html>
